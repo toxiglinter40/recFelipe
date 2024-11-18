@@ -3,23 +3,38 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: '#e0f7fa',
+    alignItems: 'center',
+    padding: 20,
   },
-  button: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
-    borderRadius: 5,
+  profileImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    marginVertical: 20,
   },
-  user: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
-    borderRadius: 5,
+  userInfo: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  userName: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  userLocation: {
+    fontSize: 16,
+    color: '#666',
+  },
+  infoSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 10,
   },
   text: {
+    marginLeft: 10,
     fontSize: 16,
+    color: '#333',
   },
 });
 

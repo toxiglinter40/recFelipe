@@ -1,8 +1,9 @@
-import { Text, View } from "react-native";
-
-import styles from "./styles";
+import React from "react";
+import { Text, View, Image } from "react-native";
 import Title from "../../components/Title";
 import TouchButton from "../../components/TouchButton";
+import styles from "./styles";
+import { MaterialIcons } from '@expo/vector-icons'; // Biblioteca de ícones
 
 export default function Profile({ route }) {
   const { data } = route.params;
@@ -11,18 +12,28 @@ export default function Profile({ route }) {
     <View style={styles.container}>
       <Title title="Profile" />
 
-      <TouchButton route="Home" title="Go to Home" />
+      <Image
+        source={{ uri: "https://avatars.githubusercontent.com/u/98625123?v=4" }} // Substitua pela URL da imagem do usuário
+        style={styles.profileImage}
+      />
 
-      <TouchButton route="Category" title="Go to Category" />
-
-      <View style={styles.user}>
-        <Title title="User" />
-        <Text style={styles.text}>{data.name}</Text>
-        <Text style={styles.text}>{data.email}</Text>
-        <Text style={styles.text}>{data.phone}</Text>
-        <Text style={styles.text}>{data.address.city}</Text>
-        <Text style={styles.text}>{data.address.state}</Text>
+      <View style={styles.userInfo}>
+        <Text style={styles.userName}>{data.name}</Text>
+        <Text style={styles.userLocation}>{data.address.city}, {data.address.state}</Text>
       </View>
+
+      <View style={styles.infoSection}>
+        <MaterialIcons name="email" size={24} color="#555" />
+        <Text style={styles.text}>{data.email}</Text>
+      </View>
+
+      <View style={styles.infoSection}>
+        <MaterialIcons name="phone" size={24} color="#555" />
+        <Text style={styles.text}>{data.phone}</Text>
+      </View>
+
+      <TouchButton route="Home" title="Voltar para a Home" />
+      <TouchButton route="Category" title="Ver Categorias" />
     </View>
   );
 }
